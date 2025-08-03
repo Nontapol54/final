@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>เกี่ยวกับนักศึกษา</title>
+  <style>
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>เกี่ยวกับฉัน</h1>
+  <img src="{{ url_for('static', filename='chom.png') }}" alt="รูปนักศึกษา" width="200">
+  <p>ชื่อ: นนทพล ชมจันทร์</p>
+  <p>รหัส: 67130202</p>
+  <p>คณะ: วิศวกรรมคอมพิวเตอร์</p>
+
+  <a href="{{ url_for('index') }}" class="btn">กลับไปหน้าหลัก</a>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>หน้าหลัก</title>
+</head>
+<body>
+  <h1>ชื่อ: {{ student.name }}</h1>
+  <h2>รหัสนักศึกษา: {{ student.id }}</h2>
+  <nav>
+    <ul>
+      <li><a href="{{ url_for('index') }}">หน้าหลัก</a></li>
+      <li><a href="{{ url_for('about') }}">เกี่ยวกับ</a></li>
+      <li><a href="{{ url_for('myresearch') }}">งานวิจัยของฉัน</a></li>
+      <li><a href="{{ url_for('reference') }}">จัดการลิงก์ PDF</a></li>
+      <li><a href="https://www.google.com" target="_blank">Google</a></li>
+    </ul>
+  </nav>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>งานวิจัยของฉัน</title>
+</head>
+<body>
+  <h1>รายการไฟล์ PDF งานวิจัย</h1>
+  <ul>
+    {% for r in researches %}
+      <li><a href="{{ r.link }}" target="_blank">{{ r.title }}</a></li>
+    {% endfor %}
+  </ul>
+  <p><a href="{{ url_for('reference') }}">ไปหน้าจัดการลิงก์ PDF</a></p>
+</body>
+</html>

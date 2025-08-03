@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Flask environment
+.env
+*.db-journal
+
+# VS Code / IDE
+.vscode/
+.idea/
+
+# Docker
+*.log
+
+# Optional: ignore test DBs, but NOT your actual one
+# *.sqlite3
+# instance/*.db  <- ❌ อย่าใส่อันนี้ เพราะคุณต้องการ share research.db

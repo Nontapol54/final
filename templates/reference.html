@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>จัดการลิงก์ PDF</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    form {
+      margin-bottom: 30px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input[type="text"] {
+      width: 400px;
+      padding: 5px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 8px 16px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    .actions a {
+      margin-right: 10px;
+      color: blue;
+      text-decoration: none;
+    }
+    .nav-buttons {
+      margin-top: 20px;
+    }
+    .nav-buttons a {
+      margin-right: 10px;
+      padding: 8px 16px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .nav-buttons a:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>เพิ่ม / แก้ไข ลิงก์ PDF</h1>
+
+  <form method="post">
+    <input type="hidden" name="id" value="{{ edit.id if edit }}">
+    
+    <label>ชื่อไฟล์:</label>
+    <input type="text" name="title" value="{{ edit.title if edit }}" required>
+    
+    <label>ลิงก์ PDF:</label>
+    <input type="text" name="link" value="{{ edit.link if edit }}" required>
+    
+    <br>
+    <button type="submit">{{ 'บันทึกการแก้ไข' if edit else 'เพิ่มข้อมูล' }}</button>
+  </form>
+
+  <h2>รายการไฟล์ PDF</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ชื่อไฟล์</th>
+        <th>ดู PDF</th>
+        <th>การจัดการ</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for r in researches %}
+      <tr>
+        <td>{{ r.title }}</td>
+        <td><a href="{{ r.link }}" target="_blank">เปิดดู</a></td>
+        <td class="actions">
+          <a href="{{ url_for('reference', edit_id=r.id) }}">แก้ไข</a>
+          <a href="{{ url_for('delete', id=r.id) }}" onclick="return confirm('ต้องการลบหรือไม่?')">ลบ</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <div class="nav-buttons">
+    <a href="{{ url_for('index') }}">หน้าแรก</a>
+    <a href="{{ url_for('myresearch') }}">หน้าวิจัยของฉัน</a>
+  </div>
+
+</body>
+</html>
